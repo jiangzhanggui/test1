@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>概率设置 - 幸运抽奖平台</title>
+    <link rel="stylesheet" href="admin-styles.css">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- 侧边导航栏 -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>抽奖管理后台</h2>
+                <p>系统版本 v1.0</p>
+            </div>
+            <div class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    <i class="fas fa-tachometer-alt"></i> 仪表盘
+                </a>
+                <a href="prizes.html" class="menu-item">
+                    <i class="fas fa-gift"></i> 奖项管理
+                </a>
+                <a href="probability.html" class="menu-item active">
+                    <i class="fas fa-percentage"></i> 概率设置
+                </a>
+                <a href="activities.html" class="menu-item">
+                    <i class="fas fa-calendar-alt"></i> 活动管理
+                </a>
+                <a href="statistics.html" class="menu-item">
+                    <i class="fas fa-chart-bar"></i> 数据统计
+                </a>
+                <a href="settings.html" class="menu-item">
+                    <i class="fas fa-cog"></i> 系统设置
+                </a>
+                <a href="javascript:void(0)" id="logout-btn" class="menu-item">
+                    <i class="fas fa-sign-out-alt"></i> 退出登录
+                </a>
+            </div>
+        </div>
+
+        <!-- 主内容区域 -->
+        <div class="main-content">
+            <div class="header">
+                <h1>概率设置</h1>
+                <div class="user-info">
+                    <img src="https://via.placeholder.com/40" alt="管理员头像">
+                    <span>管理员</span>
+                </div>
+            </div>
+
+            <!-- 概率设置卡片 -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">奖项概率分配</h2>
+                    <div class="probability-status" id="probability-status">
+                        <span class="probability-total">总计: <span id="total-percentage">0</span>%</span>
+                        <span class="status active" id="status-indicator">合法</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="probability-visual">
+                        <div class="probability-chart">
+                            <div class="chart-container" id="chart-container">
+                                <!-- 由JavaScript动态生成 -->
+                            </div>
+                        </div>
+                        <div class="probability-form">
+                            <div class="form-header">
+                                <h3>调整概率</h3>
+                                <p class="form-hint">所有奖项概率之和必须等于100%</p>
+                            </div>
+                            <div id="probability-inputs">
+                                <!-- 由JavaScript动态生成 -->
+                            </div>
+                            <div class="form-actions">
+                                <button class="btn btn-primary" id="save-probability-btn">保存设置</button>
+                                <button class="btn btn-danger" id="reset-probability-btn">重置</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 概率微调建议 -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">概率微调建议</h2>
+                </div>
+                <div class="card-body">
+                    <div class="probability-tips">
+                        <div class="tip-item">
+                            <div class="tip-icon"><i class="fas fa-lightbulb"></i></div>
+                            <div class="tip-content">
+                                <h3>一等奖</h3>
+                                <p>建议将一等奖的概率控制在5%-10%之间，既保证稀有性，又不会让用户感到遥不可及。</p>
+                            </div>
+                        </div>
+                        <div class="tip-item">
+                            <div class="tip-icon"><i class="fas fa-lightbulb"></i></div>
+                            <div class="tip-content">
+                                <h3>二等奖</h3>
+                                <p>建议将二等奖的概率控制在15%-20%之间，让用户有较高期望获得中等价值奖品。</p>
+                            </div>
+                        </div>
+                        <div class="tip-item">
+                            <div class="tip-icon"><i class="fas fa-lightbulb"></i></div>
+                            <div class="tip-content">
+                                <h3>三等奖</h3>
+                                <p>建议将三等奖的概率控制在25%-35%之间，作为常见的中奖结果，保持用户参与积极性。</p>
+                            </div>
+                        </div>
+                        <div class="tip-item">
+                            <div class="tip-icon"><i class="fas fa-lightbulb"></i></div>
+                            <div class="tip-content">
+                                <h3>四等奖</h3>
+                                <p>建议将四等奖的概率控制在40%-50%之间，作为基础保底奖项，确保大部分用户有奖可得。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="probability.js"></script>
+</body>
+</html> 

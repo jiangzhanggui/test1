@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>奖项管理 - 幸运抽奖平台</title>
+    <link rel="stylesheet" href="admin-styles.css">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- 侧边导航栏 -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>抽奖管理后台</h2>
+                <p>系统版本 v1.0</p>
+            </div>
+            <div class="sidebar-menu">
+                <a href="prizes.html" class="menu-item active">
+                    <i class="fas fa-gift"></i> 奖项管理
+                </a>
+                <a href="javascript:void(0)" id="logout-btn" class="menu-item">
+                    <i class="fas fa-sign-out-alt"></i> 退出登录
+                </a>
+            </div>
+        </div>
+
+        <!-- 主内容区域 -->
+        <div class="main-content">
+            <div class="header">
+                <h1>奖项管理</h1>
+            </div>
+
+            <!-- 奖项列表 -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">奖项列表</h2>
+                    <button class="btn btn-primary" id="add-prize-btn">
+                        <i class="fas fa-plus"></i> 添加奖项
+                    </button>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>奖项等级</th>
+                                <th>奖品名称</th>
+                                <th>中奖概率</th>
+                                <th>状态</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody id="prize-list">
+                            <!-- 奖项数据将通过 JavaScript 动态加载 -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 添加/编辑奖项弹窗 -->
+    <div class="modal" id="prize-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-prize-modal">&times;</span>
+            <div class="modal-header">
+                <h2 id="modal-title">添加奖项</h2>
+            </div>
+            <div class="modal-body">
+                <form id="prize-form">
+                    <input type="hidden" id="prize-id">
+                    <div class="form-group">
+                        <label for="prize-level">奖项等级</label>
+                        <input type="text" id="prize-level" class="form-control" placeholder="如：一等奖" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="prize-name">奖品名称</label>
+                        <input type="text" id="prize-name" class="form-control" placeholder="如：iPhone 13 Pro Max" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="prize-probability">中奖概率 (%)</label>
+                        <input type="number" id="prize-probability" class="form-control" min="0" max="100" step="0.1" placeholder="0-100 之间的数值" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="prize-color">奖项颜色</label>
+                        <input type="color" id="prize-color" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="prize-icon">奖项图标</label>
+                        <select id="prize-icon" class="form-control" required>
+                            <option value="trophy">奖杯</option>
+                            <option value="gift">礼物</option>
+                            <option value="envelope">红包</option>
+                            <option value="ticket-alt">优惠券</option>
+                        </select>
+                        <div class="icon-preview">
+                            <i id="icon-preview" class="fas fa-trophy"></i>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="prize-status">状态</label>
+                        <select id="prize-status" class="form-control" required>
+                            <option value="active">启用</option>
+                            <option value="inactive">禁用</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger" id="cancel-btn">取消</button>
+                <button class="btn btn-primary" id="save-prize-btn">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 确认删除弹窗 -->
+    <div class="modal" id="confirm-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>确认删除</h2>
+            </div>
+            <div class="modal-body">
+                <p>确定要删除该奖项吗？此操作不可撤销。</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="cancel-delete-btn">取消</button>
+                <button class="btn btn-danger" id="confirm-delete-btn">删除</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="prizes.js"></script>
+</body>
+</html> 

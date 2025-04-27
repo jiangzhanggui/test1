@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理后台 - 幸运抽奖平台</title>
+    <link rel="stylesheet" href="admin-styles.css">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- 侧边导航栏 -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>抽奖管理后台</h2>
+                <p>系统版本 v1.0</p>
+            </div>
+            <div class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item active">
+                    <i class="fas fa-tachometer-alt"></i> 仪表盘
+                </a>
+                <a href="prizes.html" class="menu-item">
+                    <i class="fas fa-gift"></i> 奖项管理
+                </a>
+                <a href="probability.html" class="menu-item">
+                    <i class="fas fa-percentage"></i> 概率设置
+                </a>
+                <a href="activities.html" class="menu-item">
+                    <i class="fas fa-calendar-alt"></i> 活动管理
+                </a>
+                <a href="statistics.html" class="menu-item">
+                    <i class="fas fa-chart-bar"></i> 数据统计
+                </a>
+                <a href="settings.html" class="menu-item">
+                    <i class="fas fa-cog"></i> 系统设置
+                </a>
+                <a href="javascript:void(0)" id="logout-btn" class="menu-item">
+                    <i class="fas fa-sign-out-alt"></i> 退出登录
+                </a>
+            </div>
+        </div>
+
+        <!-- 主内容区域 -->
+        <div class="main-content">
+            <div class="header">
+                <h1>仪表盘</h1>
+                <div class="user-info">
+                    <img src="https://via.placeholder.com/40" alt="管理员头像">
+                    <span>管理员</span>
+                </div>
+            </div>
+
+            <!-- 数据概览卡片 -->
+            <div class="dashboard-cards">
+                <div class="card dashboard-card">
+                    <div class="dashboard-card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="dashboard-card-content">
+                        <h3>参与人数</h3>
+                        <div class="dashboard-card-value">1,234</div>
+                        <div class="dashboard-card-change increase">
+                            <i class="fas fa-arrow-up"></i> 12.5% 较昨日
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card dashboard-card">
+                    <div class="dashboard-card-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="dashboard-card-content">
+                        <h3>中奖人数</h3>
+                        <div class="dashboard-card-value">345</div>
+                        <div class="dashboard-card-change increase">
+                            <i class="fas fa-arrow-up"></i> 8.3% 较昨日
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card dashboard-card">
+                    <div class="dashboard-card-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <div class="dashboard-card-content">
+                        <h3>中奖率</h3>
+                        <div class="dashboard-card-value">27.9%</div>
+                        <div class="dashboard-card-change decrease">
+                            <i class="fas fa-arrow-down"></i> 3.2% 较昨日
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card dashboard-card">
+                    <div class="dashboard-card-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="dashboard-card-content">
+                        <h3>活动数量</h3>
+                        <div class="dashboard-card-value">5</div>
+                        <div class="dashboard-card-change">
+                            <i class="fas fa-equals"></i> 与昨日持平
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 最近活动 -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">最近活动</h2>
+                    <button class="btn btn-primary">查看全部</button>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>活动名称</th>
+                                <th>开始时间</th>
+                                <th>结束时间</th>
+                                <th>状态</th>
+                                <th>参与人数</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>春节抽奖活动</td>
+                                <td>2025-01-20</td>
+                                <td>2025-02-10</td>
+                                <td><span class="status active">进行中</span></td>
+                                <td>523</td>
+                            </tr>
+                            <tr>
+                                <td>元旦抽奖活动</td>
+                                <td>2024-12-25</td>
+                                <td>2025-01-05</td>
+                                <td><span class="status completed">已结束</span></td>
+                                <td>412</td>
+                            </tr>
+                            <tr>
+                                <td>感恩节抽奖活动</td>
+                                <td>2024-11-20</td>
+                                <td>2024-11-30</td>
+                                <td><span class="status completed">已结束</span></td>
+                                <td>299</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 奖项分布 -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">奖项分布</h2>
+                </div>
+                <div class="card-body">
+                    <div class="prize-distribution">
+                        <div class="prize-chart-container">
+                            <!-- 这里应该放置图表，简单用 DIV 模拟 -->
+                            <div class="prize-chart">
+                                <div class="chart-segment" style="transform: rotate(0deg); background-color: #e74c3c;"></div>
+                                <div class="chart-segment" style="transform: rotate(36deg); background-color: #3498db;"></div>
+                                <div class="chart-segment" style="transform: rotate(108deg); background-color: #2ecc71;"></div>
+                                <div class="chart-segment" style="transform: rotate(252deg); background-color: #f1c40f;"></div>
+                                <div class="chart-hole"></div>
+                            </div>
+                        </div>
+                        <div class="prize-legend">
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #e74c3c;"></div>
+                                <div class="legend-text">一等奖 (10%)</div>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #3498db;"></div>
+                                <div class="legend-text">二等奖 (20%)</div>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #2ecc71;"></div>
+                                <div class="legend-text">三等奖 (30%)</div>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #f1c40f;"></div>
+                                <div class="legend-text">四等奖 (40%)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html> 

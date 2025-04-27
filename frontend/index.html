@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>幸运抽奖 - 在线抽奖平台</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- 引入字体图标库 -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <!-- 引入动画库 -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="title">幸运抽奖</h1>
+            <p class="subtitle">快来看看你的运气吧</p>
+        </header>
+
+        <main>
+            <div class="lottery-container">
+                <div class="lottery-wheel" id="lottery-wheel">
+                    <!-- 抽奖转盘将通过JS动态生成 -->
+                </div>
+                <div class="pointer"></div>
+                <button class="start-btn" id="start-btn">开始抽奖</button>
+            </div>
+
+            <div class="prize-info">
+                <h2>奖品内容</h2>
+                <div class="prize-list">
+                    <div class="prize-item">
+                        <div class="prize-icon"><i class="fas fa-trophy"></i></div>
+                        <div class="prize-details">
+                            <h3>一等奖</h3>
+                            <p>价值1000元大奖</p>
+                        </div>
+                    </div>
+                    <div class="prize-item">
+                        <div class="prize-icon"><i class="fas fa-gift"></i></div>
+                        <div class="prize-details">
+                            <h3>二等奖</h3>
+                            <p>精美礼品</p>
+                        </div>
+                    </div>
+                    <div class="prize-item">
+                        <div class="prize-icon"><div class="custom-hongbao"></div></div>
+                        <div class="prize-details">
+                            <h3>三等奖</h3>
+                            <p>现金红包</p>
+                        </div>
+                    </div>
+                    <div class="prize-item">
+                        <div class="prize-icon"><i class="fas fa-ticket-alt"></i></div>
+                        <div class="prize-details">
+                            <h3>四等奖</h3>
+                            <p>优惠券礼包</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 幸运抽奖平台 - 版权所有</p>
+            <div class="admin-login">
+                <a href="admin/login.html">管理员登录</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- 中奖弹窗 -->
+    <div class="modal" id="win-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2>恭喜您中奖了！</h2>
+            </div>
+            <div class="modal-body">
+                <div class="prize-animation">
+                    <i class="fas fa-trophy prize-icon"></i>
+                </div>
+                <div id="prize-name">一等奖</div>
+                <div id="prize-description">价值1000元大奖</div>
+            </div>
+            <div class="modal-footer">
+                <button id="confirm-btn">确认</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
